@@ -1,0 +1,84 @@
+<!-- Header Start -->
+
+
+
+<div class="jumbotron jumbotron-fluid position-relative overlay-bottom" style="margin-bottom: 90px;">
+
+
+
+    <div class="container text-center my-5 py-5">
+
+
+
+        <h1 class="text-white mt-4 mb-4">Learn From Home</h1>
+
+
+
+        <h1 class="text-white display-1 mb-5">Colleges Details</h1>
+
+
+
+        <div class="mx-auto mb-5"
+            style="width: 100%; max-width: 1124px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+
+            <table class="table" style="margin: auto;width: 100%;">
+
+                <tr style="background-color:azure">
+
+                    <th>SL Number</th>
+
+                    <th>Course Name</th>
+
+                    <th>College Name</th>
+
+                    <th>Seats Available</th>
+
+                    <th>Uninversity</th>
+
+                    <th>District</th>
+
+                    <th>Address</th>
+
+                </tr>
+
+
+
+                <tr *ngFor="let item of colleges let i=index" class="table-primary">
+
+                    <td> {{i+1}} </td>
+
+                    <td> {{item.courseName}}</td>
+
+                    <td> {{item.collegeName}} </td>
+
+                    <td> {{item.seatsAvailable}} </td>
+
+                    <td> {{item.university}} </td>
+
+                    <td> {{item.district}} </td>
+
+                    <td> {{item.address}} </td>
+
+                </tr>
+
+
+
+            </table>
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+</div>
+
+
+
+<!-- Header End -->
+
+has context menu

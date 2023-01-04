@@ -1,0 +1,155 @@
+<!-- Topbar Start -->
+<div class="container-fluid bg-dark">
+
+  <div class="row py-2 px-lg-5">
+
+    <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
+
+      <div class="d-inline-flex align-items-center text-white">
+
+        <small><i class="fa fa-phone-alt mr-2"></i>+91 9867431211</small>
+
+        <small class="px-3">|</small>
+
+        <small><i class="fa fa-envelope mr-2"></i>info@example.com</small>
+
+      </div>
+
+    </div>
+
+    <div class="col-lg-6 text-center text-lg-right">
+
+      <div class="d-inline-flex align-items-center">
+
+        <a class="text-white px-2" href="">
+
+          <i class="fab fa-facebook-f"></i>
+
+        </a>
+
+        <a class="text-white px-2" href="">
+
+          <i class="fab fa-twitter"></i>
+
+        </a>
+
+        <a class="text-white px-2" href="">
+
+          <i class="fab fa-linkedin-in"></i>
+
+        </a>
+
+        <a class="text-white px-2" href="">
+
+          <i class="fab fa-instagram"></i>
+
+        </a>
+
+        <a class="text-white pl-2" href="">
+
+          <i class="fab fa-youtube"></i>
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- Topbar End -->
+
+
+
+<!-- Navbar Start -->
+
+<div class="container-fluid p-0">
+
+  <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
+
+    <a href="index.html" class="navbar-brand ml-lg-3">
+
+      <h1 class="m-0 text-uppercase text-primary">
+
+        <i class="fa fa-book-reader mr-3"></i>EDUKIT
+
+      </h1>
+
+    </a>
+
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+
+      <span class="navbar-toggler-icon"></span>
+
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
+
+      <div class="navbar-nav mx-auto py-0" style="text-center">
+
+        <a href="admin.html" class="nav-item nav-link">Home</a>
+
+        <a href="course.html" class="nav-item nav-link">Courses</a>
+
+        <a href="futurecourse.html" class="nav-item nav-link">Future Courses</a>
+
+        <a class="nav-link" [routerLink]="['/colleges']">Colleges</a>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+</div>
+
+<!-- Navbar End -->
+
+
+
+<!-- form -->
+
+
+<div class="jumbotron jumbotron-fluid page-header position-relative overlay-bottom">
+
+  <div>
+
+    <form [formGroup]="collegeRegisterform" class="container text-center">
+
+      <div *ngIf="myCourses">
+        <select (change)="selectChangeHandler($event)" class="coursedrop" name="course">
+
+          <option value="0">Select UG Course</option>
+          <option *ngFor="let course of myCourses" value="{{course.courseId}}">{{course.courseName}}</option>
+
+
+        </select>
+      </div>
+      <br />
+      <div *ngIf="myFutureCourse">
+        <select (change)="selectFutureCourse($event)" class="coursedrop" name="fcourse">
+
+          <option value="0">Select PG Course</option>
+          <option *ngFor="let fcourse of myFutureCourse" value="{{fcourse.futureCourseid}}">{{fcourse.futureCoursename}}
+          </option>
+
+
+        </select>
+      </div>
+      <input formControlName="collegeName" class="form-control" placeholder="College Name" />
+      <input formControlName="university" class="form-control" placeholder="University" />
+
+      <input formControlName="district" class="form-control" placeholder="District" />
+
+
+
+      <br />
+
+      <button type="submit" (click)="OnSubmit()" class="btn btn-primary">Add</button>
+
+    </form>
+
+  </div>
+</div>
