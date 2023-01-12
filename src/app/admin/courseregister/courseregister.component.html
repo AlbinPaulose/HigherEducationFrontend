@@ -42,9 +42,10 @@
         </button>
         <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
             <div class="navbar-nav mx-auto py-0">
-                <a [routerLink]="['/adminhome']" class="nav-item nav-link">Home</a>
-                <a [routerLink]="['/courseregister']" class="nav-item nav-link ">Course Register</a>
-                <a [routerLink]="['/futurecourse']" class="nav-item nav-link">Future Courses</a>
+                
+                <a class="nav-link" [routerLink]="['/adminhome']">Home</a>
+                <a class="nav-link" [routerLink]="['/courseregister']">Course Register</a>
+                <a class="nav-link" [routerLink]="['/futurecourse']">Future Courses</a>
                 <a class="nav-link" [routerLink]="['/addcollege']">Colleges</a>
             </div>
         </div>
@@ -63,4 +64,47 @@
             <button type="submit" (click)="OnSubmit()" class="btn btn-primary">Add</button>
             
         </form>
+        <div >
+            <diV style=" margin: auto; width:500px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);margin-top: 20px;">
+                <h1 class="text-white mt-4 mb-4">Course Details</h1>
+                <table class="table" style="margin: auto;width: 100%;color: #000;background-color: whitesmoke;border: 1px;">
+    
+                    <tr>
+                        <th>SL No</th>
+                        <th>Course Id</th>
+    
+                        <th>Course Name</th>
+    
+                        <th>Type</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+    
+                    </tr>
+    
+    
+    
+                    <tr *ngFor="let course of CourseDetails let i=index">
+    
+                        <td>{{i+1}}</td>
+    
+                        <td>{{course.courseId}} </td>
+    
+                        <td>{{course.courseName}}</td>
+                        <td> {{course.courseType}} </td>
+                        <td><a [routerLink]="['/editcourse',course.courseId]">Edit</a></td>
+                        <td><a [routerLink]="['/deletecourse',course.courseId]" (click)="deleteCourse()">Delete</a></td>
+    
+                    </tr>
+    
+    
+    
+                    
+    
+    
+                </table>
+    
+    
+    
+            </diV>
+        </div>
     </div>

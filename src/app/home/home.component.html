@@ -65,7 +65,7 @@
                     <div *ngIf="CourseName">
                         <select (change)="submitSelectedCourse($event)" name="course"
                             class="btn btn-outline-light bg-white text-body px-4 dropdown-toggle" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
+                            aria-haspopup="true" aria-expanded="false" style="margin:50px;width: 450px;text-align: center;">
                             <option value="0">--Select course--</option>
                             <option *ngFor="let course of CourseName" value="{{course.courseId}}">{{course.courseName}}
                             </option>
@@ -82,7 +82,7 @@
 
 
         <div *ngIf="FutureCourses">
-        <diV style=" margin: auto; width:500px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);margin-top: 20px;">
+        <diV style=" margin: auto; width:550px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);margin-top: 20px;">
             <h1 class="text-white mt-4 mb-4">Your Higher Options</h1>
             <table class="table" style="margin: auto;width: 100%;color: #000;background-color: whitesmoke;border: 1px;">
 
@@ -119,8 +119,8 @@
 
         </diV>
     </div>
-    </div>
-
+    </div><br/>
+    <h6 class="text-white">Click the course to view colleges</h6>
         <!-- table end -->
     </div>
 </div>

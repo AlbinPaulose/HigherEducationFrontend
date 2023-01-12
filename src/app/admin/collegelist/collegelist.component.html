@@ -88,12 +88,12 @@
 
             <div class="navbar-nav mx-auto py-0">
 
-                <a [routerLink]="['/adminhome']" class="nav-item nav-link">Home</a>
+                
+                <a class="nav-link" [routerLink]="['/adminhome']">Home</a>  
 
-                <a [routerLink]="['/courseregister']" class="nav-item nav-link">Course Register</a>
+                <a class="nav-link" [routerLink]="['/courseregister']">Course Register</a>
 
-                <a [routerLink]="['/futurecourse']" class="nav-item nav-link">Future Courses</a>
-
+                <a class="nav-link" [routerLink]="['/futurecourse']">Future Courses</a>
                 <a class="nav-link" [routerLink]="['/addcollege']">Colleges</a>
 
             </div>
@@ -116,19 +116,19 @@
 
         <form [formGroup]="CollegeRegisterForm" class="container text-center" style="width: 80%; margin: 0 auto">
             <div *ngIf="FutureCourses">
-                <select (change)="SelectedCourse($event)" class="coursedrop" style="margin-bottom: 10px"  name="course">
-                    <option value="0">--Select--</option>  
+                <select (change)="SelectedCourse($event)" class="coursedrop" style="margin-bottom: 10px"  name="course" required>
+                    <option value="0">--Select Course--</option>  
                     <option *ngFor="let course of FutureCourses" value="{{course.futureCoursename}}">{{course.futureCoursename}}</option>
 
                 </select>
             </div>      
             <br />
 
-            <input class="form-control" style="margin-bottom: 10px"  placeholder="College Name" formControlName="CollegeName" />
-            <input class="form-control"  placeholder="Total Seats" formControlName="SeatsAvailable">
-            <input class="form-control"  placeholder="University" formControlName="University">
-            <input class="form-control"  placeholder="District" formControlName="District">
-            <input class="form-control"  placeholder="Address" formControlName="Address">
+            <input class="form-control" style="margin-bottom: 10px"  placeholder="College Name" formControlName="CollegeName" required />
+            <input class="form-control"  placeholder="Total Seats" formControlName="SeatsAvailable" required>
+            <input class="form-control"  placeholder="University" formControlName="University" required>
+            <input class="form-control"  placeholder="District" formControlName="District" required>
+            <input class="form-control"  placeholder="Address" formControlName="Address" required>
 
             <br />
 
@@ -136,6 +136,78 @@
 
         </form>
 
+    </div>
+    <div style="margin: 50px;text-align: center;">
+        <label class="text-white"><b style="font-size: 25px;">Filter By</b></label>
+        <select (change)="GetSelectedFilteredType($event)" name="course"
+            class="btn btn-outline-light bg-white text-body px-4 dropdown-toggle" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false" style="margin:50px;width: 450px;text-align: center;">
+            <option value="0">--Select Type--</option>
+            <option value="CourseName">Course</option>
+            <option value="University">University</option>
+            <option value="District">District</option>
+            <!-- <option *ngFor="let course of CourseName" value="{{course.courseId}}">{{course.courseName}}
+            </option> -->
+        </select>
+    </div>
+
+    <div *ngIf="filterDisplayLabel" style="margin: 20px;text-align: center;">
+        <select (change)="GetFilteredColleges($event)" name="course"
+            class="btn btn-outline-light bg-white text-body px-4 dropdown-toggle" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false" style="margin:50px;width: 450px;text-align: center;">
+            <option value="0">--Select any {{filterDisplayLabel}}--</option>
+            <option *ngFor="let lists of filterTypeResult" value="{{lists}}">{{lists}}</option>
+            <!-- <option *ngFor="let course of CourseName" value="{{course.courseId}}">{{course.courseName}}
+            </option> -->
+        </select>
+    </div>
+
+    <div >
+        <diV style="margin:200px;width:500px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);margin-top: 20px;">
+            <h1 class="text-white" style="width:1000px;text-align: center;"> College List</h1>
+            <table class="table" style="margin: left;width: 100%;color: #000;background-color: whitesmoke;border: 1px;">
+
+                <tr>
+                    <th>SL No</th>
+                    <th>College Id</th>
+                    <th>Course Name</th>
+                    <th>College Name</th>
+                    <th>Seats Available</th>
+                    <th>University</th>
+                    <th>District</th>
+                    <th>Address</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+
+                </tr>
+
+
+
+                <tr *ngFor="let college of CollegeDetails let i=index">
+
+                    <td> {{i+1}} </td>
+                    <td> {{college.collegeId}} </td>
+                    <td> {{college.courseName}} </td>
+                    <td> {{college.collegeName}} </td>
+                    <td> {{college.seatsAvailable}} </td>
+                    <td> {{college.university}} </td>
+                    <td> {{college.district}} </td>
+                    <td> {{college.address}} </td>
+                    <td><a [routerLink]="['/editcolleges',college.collegeId]">Edit</a></td>
+                    <td><a [routerLink]="['/deletecolleges',college.collegeId]" (click)="deleteCollege()">Delete</a></td>
+
+                </tr>
+
+
+
+                
+
+
+            </table>
+
+
+
+        </diV>
     </div>
 
 </div>

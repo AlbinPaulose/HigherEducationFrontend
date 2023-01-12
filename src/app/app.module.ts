@@ -14,6 +14,9 @@ import { FuturecourseComponent } from './admin/futurecourse/futurecourse.compone
 import { CollegesComponent } from './admin/colleges/colleges.component';
 import { CollegelistComponent } from './admin/collegelist/collegelist.component';
 import { ViewcollegesComponent } from './viewcolleges/viewcolleges.component';
+import { EditcourseComponent } from './admin/editcourse/editcourse.component';
+import { EditfuturecourseComponent } from './admin/editfuturecourse/editfuturecourse.component';
+import { EditcollegesComponent } from './admin/editcolleges/editcolleges.component';
 
 
 
@@ -30,6 +33,9 @@ import { ViewcollegesComponent } from './viewcolleges/viewcolleges.component';
     CollegesComponent,
     CollegelistComponent,
     ViewcollegesComponent,
+    EditcourseComponent,
+    EditfuturecourseComponent,
+    EditcollegesComponent,
   ],
   imports: [
     BrowserModule,

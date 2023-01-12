@@ -5,6 +5,9 @@ import { AdminloginComponent } from './admin/adminlogin/adminlogin.component';
 import { CollegelistComponent } from './admin/collegelist/collegelist.component';
 import { CollegesComponent } from './admin/colleges/colleges.component';
 import { CourseregisterComponent } from './admin/courseregister/courseregister.component';
+import { EditcollegesComponent } from './admin/editcolleges/editcolleges.component';
+import { EditcourseComponent } from './admin/editcourse/editcourse.component';
+import { EditfuturecourseComponent } from './admin/editfuturecourse/editfuturecourse.component';
 import { FuturecourseComponent } from './admin/futurecourse/futurecourse.component';
 import { HomeComponent } from './home/home.component';
 import { ViewcollegesComponent } from './viewcolleges/viewcolleges.component';
@@ -22,7 +25,13 @@ children:
 {path:'futurecourse',component:FuturecourseComponent},
 {path:'colleges',component:CollegesComponent},
 {path:'addcollege',component:CollegelistComponent},
-{path:'viewcolleges/:course',component:ViewcollegesComponent}
+{path:'viewcolleges/:course',component:ViewcollegesComponent},
+{path:'deletecourse/:courseid',component:CourseregisterComponent},
+{path:'editcourse/:courseid',component:EditcourseComponent},
+{path:'deletefuturecourse/:futurecourseid',component:FuturecourseComponent},
+{path:'editfuturecourse/:futurecourseid',component:EditfuturecourseComponent},
+{path:'deletecolleges/:collegeid',component:CollegelistComponent},
+{path:'editcolleges/:collegeid',component:EditcollegesComponent}
 ];
 
 @NgModule({

@@ -14,9 +14,12 @@ export class FuturecourseComponent {
  
   constructor(private backendservice: BackEndServiceService, private route: ActivatedRoute,private fb:FormBuilder,private httpservice:HttpClient) {
   }
+  FutureCoursesDetails:any[]=[]
   myCourses:any[]=[];
   selected = null;
   selectedCourse:any
+  sub:any
+  futureCourseId:any
 
   selectChangeHandler (event: any) {
     this.selectedCourse = event.target.value;
@@ -33,6 +36,7 @@ export class FuturecourseComponent {
 
   ngOnInit() {
     this.getCourses();
+    this.getFutureCourses();
     
   }
 
@@ -45,6 +49,25 @@ export class FuturecourseComponent {
       console.log (err.message);
     });
 
+  }
+
+  getFutureCourses(){
+    this.backendservice.GetFutureCourse().subscribe((result)=>{
+      this.FutureCoursesDetails = result;
+    },
+    (err: HttpErrorResponse) => {
+      console.log (err.message);
+    });
+  }
+
+  deleteFutureCourse(){
+    this.sub = this.route.paramMap.subscribe((params)=>{
+      this.futureCourseId = params.get('futurecourseid');
+      if(confirm('Are you sure?')){
+        this.backendservice.DeleteFutureCourse(this.futureCourseId)
+        //location.reload();
+      }
+    })
   }
 
   OnSubmit(){

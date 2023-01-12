@@ -10,13 +10,35 @@
 
 
 
-        <h1 class="text-white mt-4 mb-4">Learn From Home</h1>
+        <h1 class="text-white mt-4 mb-4">Learn From Edukit</h1>
 
 
 
         <h1 class="text-white display-1 mb-5">Colleges Details</h1>
 
-
+        <div style="margin: 50px;text-align: center;">
+            <label class="text-white"><b style="font-size: 25px;">Filter By</b></label>
+            <select (change)="GetSelectedFilteredType($event)" name="course"
+                class="btn btn-outline-light bg-white text-body px-4 dropdown-toggle" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false" style="margin:50px;width: 450px;text-align: center;">
+                <option value="0">--Select Type--</option>
+                <option value="University">University</option>
+                <option value="District">District</option>
+                <!-- <option *ngFor="let course of CourseName" value="{{course.courseId}}">{{course.courseName}}
+                </option> -->
+            </select>
+        </div>
+    
+        <div *ngIf="filterDisplayLabel" style="margin: 20px;text-align: center;">
+            <select (change)="GetFilteredColleges($event)" name="course"
+                class="btn btn-outline-light bg-white text-body px-4 dropdown-toggle" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false" style="margin:50px;width: 450px;text-align: center;">
+                <option value="0">--Select any {{filterDisplayLabel}}--</option>
+                <option *ngFor="let lists of filterTypeResult" value="{{lists}}">{{lists}}</option>
+                <!-- <option *ngFor="let course of CourseName" value="{{course.courseId}}">{{course.courseName}}
+                </option> -->
+            </select>
+        </div>
 
         <div class="mx-auto mb-5"
             style="width: 100%; max-width: 1124px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
@@ -80,5 +102,3 @@
 
 
 <!-- Header End -->
-
-has context menu
